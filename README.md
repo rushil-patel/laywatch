@@ -3,7 +3,7 @@
 
 <p align="center">
   <p align="center">
-    <a href="https://stripe-stack-dev.fly.dev">Live Demo</a>
+    <a href="https://park-palms.fly.dev">Live Demo</a>
     ·
     <a href="https://github.com/dev-xo/dev-xo/tree/main/stripe-stack/docs">Deployment Documentation</a>
     ·
@@ -44,13 +44,13 @@ Learn more about [Remix Stacks.](https://remix.run/stacks)
 
 ## Live Demo
 
-We've created a simple demo that displays all template provided features. Feel free to test it [here](https://stripe-stack-dev.fly.dev).
+We've created a simple demo that displays all template provided features. Feel free to test it [here](https://park-palms.fly.dev).
 
-[![Remix Auth OTP Stack](https://raw.githubusercontent.com/dev-xo/dev-xo/main/stripe-stack/assets/images/Thumbnail-Min.png)](https://stripe-stack-dev.fly.dev)
+[![Remix Auth OTP Stack](https://raw.githubusercontent.com/dev-xo/dev-xo/main/stripe-stack/assets/images/Thumbnail-Min.png)](https://park-palms.fly.dev)
 
 Here's a simple workflow you can follow to test the template:
 
-1. Visit the [Live Demo](https://stripe-stack-dev.fly.dev).
+1. Visit the [Live Demo](https://park-palms.fly.dev).
 2. Log in with your preferred authentication method.
 3. Select a Subscription Plan and fill the Stripe Checkout inputs with its test values. _Check Notes._
 
