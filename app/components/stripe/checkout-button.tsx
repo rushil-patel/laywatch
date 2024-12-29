@@ -24,10 +24,8 @@ export function CheckoutButton({
     switch (planId) {
       case PlanId.FREE:
         return 'bg-yellow-500 hover:bg-yellow-400'
-      case PlanId.STARTER:
+      case PlanId.SUPPORTER:
         return 'bg-green-500 hover:bg-green-400'
-      case PlanId.PRO:
-        return 'bg-violet-500 hover:bg-violet-400'
     }
   }
 

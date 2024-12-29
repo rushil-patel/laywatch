@@ -5,8 +5,7 @@ import type { PlanLimit, Price } from '@prisma/client'
  */
 export const enum PlanId {
   FREE = 'free',
-  STARTER = 'starter',
-  PRO = 'pro',
+  SUPPORTER = 'supporter',
 }
 
 /**
@@ -33,8 +32,8 @@ export const PRICING_PLANS = {
   [PlanId.FREE]: {
     id: PlanId.FREE,
     name: 'Free',
-    description: 'Free Plan Description',
-    features: ['1 Star per Minute', 'Limited to 9 Stars'],
+    description: 'This website will stay free to use for as long as possible.',
+    features: ['Unlimted spot registrations', 'Unlimited spot reservations'],
     limits: { maxItems: 9 },
     prices: {
       [Interval.MONTH]: {
@@ -47,37 +46,20 @@ export const PRICING_PLANS = {
       },
     },
   },
-  [PlanId.STARTER]: {
-    id: PlanId.STARTER,
-    name: 'Starter',
-    description: 'Starter Plan Description',
-    features: ['4 Stars per Minute', 'Limited to 99 Stars'],
+  [PlanId.SUPPORTER]: {
+    id: PlanId.SUPPORTER,
+    name: 'Supporter',
+    description: 'Support this website with a small contribution.',
+    features: ['Unlimted spot registrations', 'Unlimited spot reservations'],
     limits: { maxItems: 99 },
     prices: {
       [Interval.MONTH]: {
-        [Currency.USD]: 990,
-        [Currency.EUR]: 990,
+        [Currency.USD]: 100,
+        [Currency.EUR]: 100,
       },
       [Interval.YEAR]: {
-        [Currency.USD]: 9990,
-        [Currency.EUR]: 9990,
-      },
-    },
-  },
-  [PlanId.PRO]: {
-    id: PlanId.PRO,
-    name: 'Pro',
-    description: 'Pro Plan Description',
-    features: ['8 Stars per Minute', 'Limited to 999 Stars'],
-    limits: { maxItems: 999 },
-    prices: {
-      [Interval.MONTH]: {
-        [Currency.USD]: 1990,
-        [Currency.EUR]: 1990,
-      },
-      [Interval.YEAR]: {
-        [Currency.USD]: 19990,
-        [Currency.EUR]: 19990,
+        [Currency.USD]: 1200,
+        [Currency.EUR]: 1200,
       },
     },
   },

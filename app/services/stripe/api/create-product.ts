@@ -16,3 +16,8 @@ export async function createStripeProduct(
     description: product.description || undefined,
   })
 }
+
+
+export async function getStripeProducts() {
+  return stripe.products.list()
+}

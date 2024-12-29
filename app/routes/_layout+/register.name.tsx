@@ -48,7 +48,9 @@ export default function RegisterName() {
         />
         <div className="my-1" />
 
-        <h5 className="text-center text-2xl font-semibold text-gray-200">About you.</h5>
+        <h5 className="text-center text-2xl font-semibold text-accent-foreground">
+          About you.
+        </h5>
         <div className="my-1" />
 
         <p className="max-w-sm text-center font-semibold text-gray-400">
@@ -61,7 +63,7 @@ export default function RegisterName() {
       {/* Name Form. */}
       <fetcher.Form method="post" autoComplete="off" className="w-full">
         <fieldset>
-          <label className="font-semibold text-gray-200">
+          <label className="font-semibold text-accent-foreground">
             <div>Name</div>
             <div className="my-1" />
 
@@ -70,8 +72,8 @@ export default function RegisterName() {
               name="name"
               placeholder="John Doe"
               required
-              className="h-12 w-full rounded-xl border-2 border-violet-500 bg-transparent px-6 
-							text-lg font-semibold text-gray-200 focus:border-violet-200"
+              className="h-12 w-full rounded-xl border-2 border-accent-foreground bg-transparent px-6 
+							text-lg font-semibold text-accent-foreground focus:border-accent-foreground"
             />
           </label>
         </fieldset>
@@ -80,20 +82,20 @@ export default function RegisterName() {
         {!isLoading ? (
           <button
             type="submit"
-            className="relative flex h-12 w-full flex-row items-center justify-center rounded-xl bg-violet-500
+            className="relative flex h-12 w-full flex-row items-center justify-center rounded-xl bg-accent-foreground
             font-bold text-white transition hover:scale-105 active:scale-100 active:brightness-90">
             <span>Continue</span>
           </button>
         ) : (
-          <span className="relative flex cursor-default flex-row items-center justify-center font-semibold text-gray-200">
+          <span className="justify- relative flex cursor-default flex-row items-center justify-around font-semibold text-accent-foreground">
             <div className="my-8" />
             <svg
-              className="absolute left-8 h-6 w-6 animate-spin fill-white"
+              className="absolute left-8 h-6 w-6 animate-spin fill-accent-foreground"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24">
               <path d="M2 11h5v2H2zm15 0h5v2h-5zm-6 6h2v5h-2zm0-15h2v5h-2zM4.222 5.636l1.414-1.414 3.536 3.536-1.414 1.414zm15.556 12.728-1.414 1.414-3.536-3.536 1.414-1.414zm-12.02-3.536 1.414 1.414-3.536 3.536-1.414-1.414zm7.07-7.071 3.536-3.535 1.414 1.415-3.536 3.535z" />
             </svg>
-            <div className="mx-1" />
+            <div />
             Setting up your account
           </span>
         )}

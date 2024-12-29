@@ -5,7 +5,7 @@ import { authenticator } from '~/services/auth/config.server'
 
 export async function loader({ request }: LoaderFunctionArgs) {
   await authenticator.isAuthenticated(request, {
-    successRedirect: '/account',
+    successRedirect: '/home',
   })
   return json({})
 }
@@ -26,12 +26,12 @@ export default function Login() {
             />
             <div className="my-3" />
 
-            <h5 className="text-center text-2xl font-semibold text-gray-200">
+            <h5 className="text-center text-2xl font-semibold text-accent-foreground">
               Welcome back traveler.
             </h5>
             <div className="my-1" />
 
-            <p className="max-w-sm text-center font-semibold text-gray-400">
+            <p className="text-accent-background max-w-sm text-center font-semibold">
               Please, continue with your preferred authentication method.
             </p>
           </div>

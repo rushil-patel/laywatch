@@ -1,21 +1,56 @@
-import { PrismaClient } from '@prisma/client'
+import { MetricMnemonic, PrismaClient } from '@prisma/client'
 import { db } from '~/utils/db.server'
 
 import { getAllPlans } from '~/models/plan/get-plan'
 import { PRICING_PLANS } from '~/services/stripe/plans'
-import { createStripeProduct } from '~/services/stripe/api/create-product'
+import { createStripeProduct, getStripeProducts } from '~/services/stripe/api/create-product'
 import { createStripePrice } from '~/services/stripe/api/create-price'
 import { configureStripeCustomerPortal } from '~/services/stripe/api/configure-customer-portal'
+import WARNLayoffMetricService from '~/services/metrics/WARNLayoffMetricService'
+import { getOrCreateCompany } from '~/models/company/create-company'
+import { getOrCreateAddress } from '~/models/address/create-address'
+import MetricRepository from '~/repository/metric-repository'
 
 const prisma = new PrismaClient()
 
 async function seed() {
-  const plans = await getAllPlans()
 
+  const layoff_metrics = await new WARNLayoffMetricService().getMetricData()
+  const metricRepo = new MetricRepository(db)
+  layoff_metrics.forEach(async metric => {
+
+    if (!metric.companyName) {
+      console.log('error', metric)
+      return
+    }
+    const company = await getOrCreateCompany({name: metric.companyName})
+    const location = await getOrCreateAddress({raw: metric.layoffLocation})
+    const metricObject = metricRepo.createMetric({
+      mnemonic: MetricMnemonic.LAYOFF,
+      effectiveOn: new Date(metric.effectiveDate),
+      asOfDate: new Date(metric.processDate),
+      value: metric.employeesAffected,
+      companyId: company.id,
+      locationId: location.id
+    
+    })
+    console.log('created')
+    console.log(metricObject)
+
+  }
+)
+
+  const plans = await getAllPlans()
+  console.log("Found Plans", plans)
   if (plans.length > 0) {
     console.log('🎉 Plans has already been seeded.')
     return true
   }
+  const createdProducts =  await getStripeProducts()
+  if (createdProducts.data.length > 0) {
+    console.log(`🎉 Products have already been created. ${createdProducts.data.map(console.log)}`)
+  }
+
 
   const seedProducts = Object.values(PRICING_PLANS).map(
     async ({ id, name, description, features, limits, prices }) => {
@@ -28,12 +63,15 @@ async function seed() {
         }))
       })
 
-      // Create Stripe product.
-      await createStripeProduct({
-        id,
-        name,
-        description: description || undefined,
-      })
+
+      if (createdProducts.data.length == 0) {
+        // Create Stripe product.
+        await createStripeProduct({
+          id,
+          name,
+          description: description || undefined,
+        })
+      }
 
       // Create Stripe price for the current product.
       const stripePrices = await Promise.all(

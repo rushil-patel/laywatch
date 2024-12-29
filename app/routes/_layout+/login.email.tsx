@@ -48,7 +48,7 @@ export default function Login() {
         />
         <div className="my-1" />
 
-        <h5 className="text-center text-2xl font-semibold text-gray-200">
+        <h5 className="text-center text-2xl font-semibold text-accent-foreground">
           Continue with Email
         </h5>
         <div className="my-1" />
@@ -79,15 +79,15 @@ export default function Login() {
         <>
           <Form method="post" autoComplete="off" className="w-full">
             <fieldset>
-              <label className="font-semibold text-gray-200">
+              <label className="font-semibold text-accent-foreground">
                 <div>Email</div>
                 <div className="my-1" />
                 <input
                   type="email"
                   name="email"
                   placeholder="hello@remix.com"
-                  className="h-12 w-full rounded-xl border-2 border-violet-500 bg-transparent px-6 
-							    text-lg font-semibold text-gray-200 focus:border-violet-200"
+                  className="h-12 w-full rounded-xl border-2 border-accent-foreground bg-transparent px-6 
+							    text-lg font-semibold text-accent-foreground"
                 />
               </label>
             </fieldset>
@@ -95,8 +95,8 @@ export default function Login() {
 
             <button
               type="submit"
-              className="relative flex h-12 w-full flex-row items-center justify-center rounded-xl bg-violet-500
-					    font-bold text-white transition hover:scale-105 active:scale-100 active:brightness-90">
+              className="relative flex h-12 w-full flex-row items-center justify-center rounded-xl
+					    bg-primary font-bold text-accent transition hover:scale-105 active:scale-100 active:brightness-90">
               <svg
                 className="absolute left-6 h-6 w-6 fill-white"
                 viewBox="0 0 24 24"
@@ -115,7 +115,7 @@ export default function Login() {
         <div className="flex flex-col items-center">
           <Form method="post" autoComplete="off" className="w-full">
             <fieldset>
-              <label className="font-semibold text-gray-200">
+              <label className="text-border-accent-foreground-200 font-semibold">
                 <div>Code</div>
                 <div className="my-1" />
 
@@ -123,8 +123,8 @@ export default function Login() {
                   type="text"
                   name="code"
                   placeholder="Paste here your code ..."
-                  className="h-12 w-full rounded-xl border-2 border-violet-500 bg-transparent px-6 
-							    text-lg font-semibold text-gray-200 focus:border-violet-200"
+                  className="h-12 w-full rounded-xl border-2 border-accent-foreground bg-transparent px-6 
+							    text-lg font-semibold text-accent-foreground"
                 />
               </label>
             </fieldset>
@@ -132,7 +132,7 @@ export default function Login() {
 
             <button
               type="submit"
-              className="relative flex h-12 w-full flex-row items-center justify-center rounded-xl bg-violet-500
+              className="relative flex h-12 w-full flex-row items-center justify-center rounded-xl bg-accent-foreground
 					    font-bold text-white transition hover:scale-105 active:scale-100 active:brightness-90">
               <svg
                 className="absolute left-6 h-6 w-6 fill-white"
@@ -153,7 +153,7 @@ export default function Login() {
             <button
               type="submit"
               className="relative flex w-auto flex-row items-center justify-center rounded-xl
-					    font-bold text-violet-200 transition hover:scale-105 active:scale-100 active:brightness-90">
+					    font-bold text-gray-400 transition hover:scale-105 active:scale-100 active:brightness-90">
               <span>Request new Code</span>
             </button>
           </Form>

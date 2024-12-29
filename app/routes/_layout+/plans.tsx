@@ -92,7 +92,7 @@ export default function Plans() {
                   className="h-24 w-24 select-none transition hover:scale-105 hover:brightness-110"
                 />
               )}
-              {plan.id === PlanId['STARTER'] && (
+              {plan.id === PlanId['SUPPORTER'] && (
                 <div className="relative">
                   <img
                     src="https://raw.githubusercontent.com/dev-xo/dev-xo/main/assets/images/star_1.png"
@@ -105,14 +105,6 @@ export default function Plans() {
                     className="absolute right-0 top-[-10px] h-8 w-8 select-none opacity-60 hue-rotate-60 transition hover:scale-105 hover:brightness-110"
                   />
                 </div>
-              )}
-
-              {plan.id === PlanId['PRO'] && (
-                <img
-                  src="https://raw.githubusercontent.com/dev-xo/dev-xo/main/assets/images/star_2.png"
-                  alt=""
-                  className="h-24 w-24 select-none hue-rotate-[200deg] transition hover:scale-105 hover:brightness-110"
-                />
               )}
               <div className="m-4" />
 
