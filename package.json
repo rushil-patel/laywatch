@@ -42,7 +42,7 @@
     "remix-auth": "^3.6.0",
     "remix-auth-otp": "^2.3.0",
     "remix-auth-socials": "^2.0.5",
-    "remix-utils": "^7.1.0",
+    "remix-utils": "^8.0.0",
     "stripe": "^11.18.0",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
